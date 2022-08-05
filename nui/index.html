@@ -23,7 +23,6 @@
                 $('.alert').remove()
                 if (data.alerts && Object.keys(data.alerts).length > 0) {
                     Object.keys(data.alerts).forEach((value) => {
-                        console.log(value)
                         $('.alerts').append(`<div class="alert">${value}</div>`)
                     })
                     $('.alerts').animate({top: "10vh", opacity: 1}, 250)
