@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+    <body>
+        <div class="alerts">
+            <div class="header">
+                <span>ירי רקטות</span><br />
+                <span>discord.gg/fivemisrael</span>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(async function() {
+            $('.alerts').css('top', "-50vh");
+            window.addEventListener("message", function (event) {
+                data = event.data;
+
+                $('.alert').remove()
+                if (data.alerts && Object.keys(data.alerts).length > 0) {
+                    Object.keys(data.alerts).forEach((value) => {
+                        console.log(value)
+                        $('.alerts').append(`<div class="alert">${value}</div>`)
+                    })
+                    $('.alerts').animate({top: "10vh", opacity: 1}, 250)
+                } else {
+                    $('.alerts').animate({top: "-50vh", opacity: 0}, 250)
+                }
+            });
+        });
+        </script>
+    </body>
+</html>

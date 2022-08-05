@@ -1,0 +1,1 @@
+RegisterNetEvent('fivemil-alerts', function(data) SendNUIMessage({alerts = data}) end)
